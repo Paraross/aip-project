@@ -1,0 +1,15 @@
+use aip_app::app::App;
+use eframe::egui;
+
+fn main() -> eframe::Result {
+    let options = eframe::NativeOptions {
+        viewport: egui::ViewportBuilder::default().with_inner_size([640.0, 480.0]),
+        ..Default::default()
+    };
+
+    eframe::run_native(
+        "AI Slop",
+        options,
+        Box::new(|cc| Ok(Box::new(App::new(cc)))),
+    )
+}
