@@ -51,9 +51,15 @@ impl App {
     fn on_update(&mut self, ui: &mut egui::Ui) {
         let mut state = self.state.lock().unwrap();
 
-        egui::TextEdit::multiline(&mut state.text)
-            .hint_text("Prompt")
-            .show(ui);
+        egui::ScrollArea::vertical()
+            .max_height(150.0)
+            .show(ui, |ui| {
+                ui.add_sized(
+                    [ui.available_width(), 150.0],
+                    egui::TextEdit::multiline(&mut state.text)
+                        .hint_text("Article or other long text to summarize"),
+                );
+            });
 
         ui.label(format!("Length: {}", state.text.len()));
         ui.label(format!(
@@ -63,7 +69,7 @@ impl App {
 
         drop(state);
 
-        if ui.button("Prompt").clicked() {
+        if ui.button("Summarize").clicked() {
             let state = self.state.clone();
             let text_is_empty = state.lock().unwrap().text.is_empty();
             if !text_is_empty {
@@ -74,7 +80,7 @@ impl App {
         let state = self.state.lock().unwrap();
 
         ui.separator();
-        ui.label("Response:");
+        ui.label("Summary:");
         ui.label(&*state.response_message);
     }
 }
@@ -95,7 +101,7 @@ fn send_request(state: Arc<Mutex<State>>) {
 
     let request = state_mutex
         .client
-        .post("http://127.0.0.1:8000/prompt")
+        .post("http://127.0.0.1:8000/summarize")
         .json(&request_body);
 
     drop(state_mutex);

@@ -10,7 +10,7 @@ fn main() -> eframe::Result {
     };
 
     eframe::run_native(
-        "AI Slop",
+        "Summarizer",
         options,
         Box::new(|cc| Ok(Box::new(App::new(cc)))),
     )
