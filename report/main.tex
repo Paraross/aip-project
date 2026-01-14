@@ -35,10 +35,22 @@ The summarizer's job is to summarize articles or other long texts.
 
 \section{Structure}
 
-The project consists of 2 parts: the HTTP server and the application.
+The project consists of 2 parts: the HTTP server and the desktop application.
 The split was made to enable modularity and decouple the agent from the user interface.
-The server is the most important part. It houses the AI agent that summarizes articles send to the \textbf{/summarize} endpoint.
+
+\subsection{The server}
+
+The web server is the most important part.
+It houses the AI agent that summarizes articles send to the \textbf{/summarize} endpoint.
+The server is written using the \href{https://fastapi.tiangolo.com}{FastAPI} web framework for Python.
+The agent is created using the \href{https://openai.github.io/openai-agents-python/}{OpenAI Agents SDK}.
+
+\subsection{The desktop application}
+
 The app serves as the UI to make the server easier to use.
+It is written using the \href{https://github.com/emilk/egui/tree/main/crates/eframe}{eframe} framework for Rust.
+The app is used only to make requests and display the results in a user-friendly way.
+It could be easily rewritten to a different framework or language, as long as it uses the server's API correctly.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{app}
