@@ -1,0 +1,92 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\usepackage{graphicx}
+\graphicspath{{img/}}
+
+\begin{document}
+
+\begin{center}
+    \LARGE \textbf{AI Summarizer}
+\end{center}
+
+\vfill
+
+\textbf{Team members:}
+
+\begin{itemize}
+    \item Adam Bal
+    \item Adrian Bednorz
+    \item Szymon Kuźnik
+    \item Patryk Kwiecień
+    \item Jakub Szoska
+    \item Aleksandra Śliwowska
+\end{itemize}
+
+\newpage
+
+\section{Introduction}
+
+The goal of the project is to implement an AI summarizer.
+The summarizer's job is to summarize articles or other long texts.
+
+\section{Structure}
+
+The project consists of 2 parts: the HTTP server and the application.
+The split was made to enable modularity and decouple the agent from the user interface.
+The server is the most important part. It houses the AI agent that summarizes articles send to the \textbf{/summarize} endpoint.
+The app serves as the UI to make the server easier to use.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{app}
+    \caption{The user interface of the application}
+\end{figure}
+
+\section{Results}
+
+The AI agent correctly summarizes articles provided to it.
+When the user enters something that is not an article, the agent declines and states its purpose.
+
+\subsection*{Back in Michigan, President Trump Celebrates Auto Industry, Economic Revival}
+
+For the article \href{https://www.whitehouse.gov/articles/2026/01/back-in-michigan-president-trump-celebrates-auto-industry-economic-revival}{Back in Michigan, President Trump Celebrates Auto Industry, Economic Revival}, the agent provided the following summary:
+
+"President Trump visited Michigan to highlight the economic progress made under his administration.
+He praised the strongest and fastest economic turnaround in the country's history, citing low inflation, high growth, and increasing real wages.
+Trump compared this to the "colossal stagflation catastrophe" under the previous administration, saying his policies have delivered trillions of dollars in new investment, reduced the trade deficit, and brought down mortgage rates.
+He also announced plans to ban large institutional investors from buying single-family homes, cap credit card interest rates at 10\%, and confront the Unaffordable Care Act to reduce healthcare premiums.
+Trump's agenda has been seen as beneficial by companies such as Ford, which plans to add new production lines and jobs due to the administration's policies.
+Additionally, Trump addressed the Minnesota Somali Fraud Scandal, announcing measures to stop the fraud, revoke citizenship of convicted naturalized immigrants, and cut off funding to "sanctuary" cities and states."
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{art1}
+    \caption{Results for the article \href{https://www.whitehouse.gov/articles/2026/01/back-in-michigan-president-trump-celebrates-auto-industry-economic-revival}{Back in Michigan, President Trump Celebrates Auto Industry, Economic Revival}}
+\end{figure}
+
+\subsection*{Iran unrest: Landline phones new lifeline amid crackdown on protesters, internet blackout}
+
+For the article \href{https://www.firstpost.com/world/iran-unrest-the-role-of-landline-phones-amid-massive-crackdown-on-protesters-internet-blackout-ws-e-13968568.html}{Iran unrest: Landline phones new lifeline amid crackdown on protesters, internet blackout}, the agent provided the following summary:
+
+"Iran is experiencing a nationwide crackdown on protests, with security forces reportedly using lethal force against demonstrators. Amid a near-total internet blackout, some Iranians are using landline phones to inform relatives abroad about the situation. These limited calls were made possible just hours before US President Donald Trump urged Iranians to continue protesting against their government.
+
+Reports describe protesters under fire from security forces, with some even being shot by snipers. The government has also ordered security camera owners to delete footage that could document the crackdown. The internet block has been described as a "kill switch" that has sharply curtailed communications and hindered efforts to verify casualties.
+
+Rights groups estimate that hundreds or possibly thousands of people have been killed during the unrest. Digital experts warn that restored landline access carries risks for citizens, as it may not be secured or encrypted. Meanwhile, SpaceX's Starlink internet service has begun providing free access to Iranian users, allowing some communication to flow despite the blackout."
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{art2}
+    \caption{Results for the article \href{https://www.firstpost.com/world/iran-unrest-the-role-of-landline-phones-amid-massive-crackdown-on-protesters-internet-blackout-ws-e-13968568.html}{Iran unrest: Landline phones new lifeline amid crackdown on protesters, internet blackout}}
+\end{figure}
+
+\subsection*{Incorrect input}
+
+When provided with "what is 2 to the power of 3?", the agent does not fulfill the request and states that its role is to summarize text.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{bad}
+    \caption{Results when the user enters "what is 2 to the power of 3?"}
+\end{figure}
+
+\end{document}
