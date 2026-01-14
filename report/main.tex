@@ -1,5 +1,6 @@
 \documentclass[12pt, a4paper]{article}
 
+\usepackage{microtype}
 \usepackage{float}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,urlcolor=blue}
@@ -46,10 +47,7 @@ The app serves as the UI to make the server easier to use.
 
 \section{Results}
 
-The AI agent correctly summarizes articles provided to it.
-When the user enters something that is not an article, the agent declines and states its purpose.
-
-\subsection*{Back in Michigan, President Trump Celebrates Auto Industry, Economic Revival}
+\subsection{Back in Michigan, President Trump Celebrates Auto Industry, Economic Revival}
 
 For the article \href{https://www.whitehouse.gov/articles/2026/01/back-in-michigan-president-trump-celebrates-auto-industry-economic-revival}{Back in Michigan, President Trump Celebrates Auto Industry, Economic Revival}, the agent provided the following summary:
 
@@ -65,7 +63,7 @@ Additionally, Trump addressed the Minnesota Somali Fraud Scandal, announcing mea
     \caption{Results for the article \href{https://www.whitehouse.gov/articles/2026/01/back-in-michigan-president-trump-celebrates-auto-industry-economic-revival}{Back in Michigan, President Trump Celebrates Auto Industry, Economic Revival}}
 \end{figure}
 
-\subsection*{Iran unrest: Landline phones new lifeline amid crackdown on protesters, internet blackout}
+\subsection{Iran unrest: Landline phones new lifeline amid crackdown on protesters, internet blackout}
 
 For the article \href{https://www.firstpost.com/world/iran-unrest-the-role-of-landline-phones-amid-massive-crackdown-on-protesters-internet-blackout-ws-e-13968568.html}{Iran unrest: Landline phones new lifeline amid crackdown on protesters, internet blackout}, the agent provided the following summary:
 
@@ -80,7 +78,7 @@ Rights groups estimate that hundreds or possibly thousands of people have been k
     \caption{Results for the article \href{https://www.firstpost.com/world/iran-unrest-the-role-of-landline-phones-amid-massive-crackdown-on-protesters-internet-blackout-ws-e-13968568.html}{Iran unrest: Landline phones new lifeline amid crackdown on protesters, internet blackout}}
 \end{figure}
 
-\subsection*{Incorrect input}
+\subsection{Incorrect input}
 
 When provided with "what is 2 to the power of 3?", the agent does not fulfill the request and states that its role is to summarize text.
 
@@ -88,5 +86,10 @@ When provided with "what is 2 to the power of 3?", the agent does not fulfill th
     \includegraphics[width=\textwidth]{bad}
     \caption{Results when the user enters "what is 2 to the power of 3?"}
 \end{figure}
+
+\subsection{Conclusions}
+
+The AI agent correctly summarizes articles provided to it.
+When the user enters something that is not an article, the agent declines and states its purpose.
 
 \end{document}
